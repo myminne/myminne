@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>척척박사 자석 친구</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- 1. 시작 화면 -->
+        <div id="start-screen" class="screen active">
+            <header class="chat-header">
+                <h1>🧲 자석 박사 연구소</h1>
+                <p>자석의 비밀을 밝혀라!</p>
+            </header>
+            <div class="content-area centered">
+                <div class="intro-message">
+                    <p>안녕? 나는 자석 박사야.<br>나와 함께 자석 퀴즈를 풀어볼까?</p>
+                </div>
+                <button id="start-quiz-btn" class="primary-btn">퀴즈 풀러 가기 🚀</button>
+            </div>
+        </div>
+
+        <!-- 2. 퀴즈 화면 (진단/보충 공용) -->
+        <div id="quiz-screen" class="screen">
+            <header class="chat-header">
+                <h1>퀴즈 퀴즈!</h1>
+                <p id="quiz-progress">문제 1 / 15</p>
+            </header>
+            <div class="content-area centered">
+                <div class="quiz-container">
+                    <div class="question-box">
+                        <p id="question-text">질문이 여기에 나옵니다.</p>
+                    </div>
+                    <div id="quiz-image-container">
+                        <!-- 이미지가 여기에 표시됩니다 -->
+                    </div>
+                    <div class="options-container" id="options-container">
+                        <!-- 선택지 버튼이 여기에 생성됨 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 피드백/결과 화면 -->
+        <div id="feedback-screen" class="screen">
+            <header class="chat-header">
+                <h1 id="feedback-title">결과 확인</h1>
+            </header>
+            <div class="content-area centered">
+                <div class="feedback-content">
+                    <div id="feedback-message"></div>
+                    <div id="learning-guide" class="learning-box"></div>
+                    <button id="next-step-btn" class="primary-btn">다음으로 👉</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.5. 박사님 선택 화면 (NEW) -->
+        <div id="difficulty-screen" class="screen">
+            <header class="chat-header">
+                <h1>박사님 선택</h1>
+                <p>두 자석 박사님 중 누구와 대화할까요?</p>
+            </header>
+            <div class="content-area centered">
+                <div class="difficulty-container">
+                    <div class="difficulty-card" id="btn-easy">
+                        <div class="diff-icon">🐣</div>
+                        <h2>친절한 자석 박사</h2>
+                        <p>초등학교 4학년 수준으로<br>쉽고 재미있게 알려줘요!</p>
+                        <button class="select-btn">선택하기</button>
+                    </div>
+                    <div class="difficulty-card" id="btn-hard">
+                        <div class="diff-icon">🎓</div>
+                        <h2>똑똑한 자석 박사</h2>
+                        <p>중학교 1학년 수준으로<br>자세하고 깊게 알려줘요!</p>
+                        <button class="select-btn">선택하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 챗봇 화면 (최종) -->
+        <div id="chat-screen" class="screen">
+            <header class="chat-header">
+                <h1>🧲 자석 박사 연구소</h1>
+                <p>자석의 비밀을 밝혀라!</p>
+                <div class="nav-bar">
+                    <button id="home-btn" class="nav-btn">🏠 처음으로</button>
+                    <button id="switch-bot-btn" class="nav-btn">🔄 박사님 바꾸기</button>
+                </div>
+            </header>
+
+            <main class="chat-window" id="chat-window">
+                <div class="message bot-message">
+                    <div class="avatar">🤖</div>
+                    <div class="bubble">
+                        축하해! 자석 퀴즈를 모두 통과했구나! 🎉<br>
+                        이제 <strong>자석</strong>에 대해 궁금한 걸 마음껏 물어봐! <br><br>
+                        예: "N극과 S극이 뭐야?", "자석에 붙는 건?", "나침반은 어떻게 만들어?"
+                    </div>
+                </div>
+            </main>
+
+            <footer class="input-area">
+                <input type="text" id="user-input" placeholder="궁금한 내용을 입력해보세요..." autocomplete="off">
+                <button id="send-btn">보내기 🚀</button>
+            </footer>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
