@@ -18,21 +18,79 @@
                 <h1>🧲 자석 박사 연구소</h1>
                 <p>자석의 비밀을 밝혀라!</p>
             </header>
-            <div class="content-area centered">
+            <div class="content-area vertical-center">
                 <div class="intro-message">
-                    <p>안녕? 나는 자석 박사야.<br>나와 함께 자석 퀴즈를 풀어볼까?</p>
+                    <p class="greeting-text">4학년 어린이들 반가워요!<br>여기는 척척 자석 박사 연구소입니다. 🏫<br><br>퀴즈를 풀면서 자석에 대해 배운 내용을
+                        정리해볼까요?<br>다 맞추면 자석 박사님을 만나러 갈 수 있어요!</p>
                 </div>
                 <button id="start-quiz-btn" class="primary-btn">퀴즈 풀러 가기 🚀</button>
             </div>
         </div>
 
-        <!-- 2. 퀴즈 화면 (진단/보충 공용) -->
+        <!-- ... (Stage Screen skipped) ... -->
+
+        <!-- 3.5. 박사님 선택 화면 (NEW) -->
+        <div id="difficulty-screen" class="screen">
+            <header class="chat-header">
+                <h1>박사님 선택</h1>
+                <p>두 자석 박사님 중 누구와 대화할까요?</p>
+            </header>
+            <div class="content-area vertical-center">
+                <div class="difficulty-container">
+                    <div class="difficulty-card" id="btn-easy">
+                        <div class="diff-icon">🐣</div>
+                        <h2>친절한 자석 박사</h2>
+                        <p>초등학교 4학년 수준으로<br>쉽고 재미있게 알려줘요!</p>
+                    </div>
+                    <div class="difficulty-card" id="btn-hard">
+                        <div class="diff-icon">🎓</div>
+                        <h2>똑똑한 자석 박사</h2>
+                        <p>중학교 1학년 수준으로<br>자세하고 깊게 알려줘요!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1.5. 스테이지 선택 화면 (NEW) -->
+        <div id="stage-screen" class="screen">
+            <header class="chat-header">
+                <h1>스테이지 선택</h1>
+                <p>4개의 미션을 모두 성공하세요!</p>
+            </header>
+            <div class="content-area vertical-center">
+                <div class="stage-grid">
+                    <!-- ... buttons ... -->
+                    <button class="stage-card" id="stage-1-btn" onclick="selectStage(1)">
+                        <span class="stage-icon">🧲</span>
+                        <span class="stage-title">1단계<br>자석에 붙을까?<br>붙지 않을까?</span>
+                        <span class="stage-status">도전!</span>
+                    </button>
+                    <button class="stage-card" id="stage-2-btn" onclick="selectStage(2)">
+                        <span class="stage-icon">💕</span>
+                        <span class="stage-title">2단계<br>자석은 밀당의 고수</span>
+                        <span class="stage-status">도전!</span>
+                    </button>
+                    <button class="stage-card" id="stage-3-btn" onclick="selectStage(3)">
+                        <span class="stage-icon">🧭</span>
+                        <span class="stage-title">3단계<br>자석과 나침반</span>
+                        <span class="stage-status">도전!</span>
+                    </button>
+                    <button class="stage-card" id="stage-4-btn" onclick="selectStage(4)">
+                        <span class="stage-icon">⚡</span>
+                        <span class="stage-title">4단계<br>우리 생활 속의 자석</span>
+                        <span class="stage-status">도전!</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 퀴즈 화면 (공용) -->
         <div id="quiz-screen" class="screen">
             <header class="chat-header">
-                <h1>퀴즈 퀴즈!</h1>
-                <p id="quiz-progress">문제 1 / 15</p>
+                <h1 id="quiz-header-title">퀴즈 퀴즈!</h1>
+                <p id="quiz-progress">문제 1 / 5</p>
             </header>
-            <div class="content-area centered">
+            <div class="content-area vertical-center">
                 <div class="quiz-container">
                     <div class="question-box">
                         <p id="question-text">질문이 여기에 나옵니다.</p>
@@ -47,16 +105,37 @@
             </div>
         </div>
 
-        <!-- 3. 피드백/결과 화면 -->
+        <!-- 3. 스테이지 결과 화면 (중간 피드백) -->
         <div id="feedback-screen" class="screen">
             <header class="chat-header">
                 <h1 id="feedback-title">결과 확인</h1>
             </header>
-            <div class="content-area centered">
-                <div class="feedback-content">
-                    <div id="feedback-message"></div>
-                    <div id="learning-guide" class="learning-box"></div>
-                    <button id="next-step-btn" class="primary-btn">다음으로 👉</button>
+            <div class="content-area vertical-center">
+                <div class="result-card">
+                    <div class="feedback-content">
+                        <div id="feedback-message"></div>
+                        <button id="next-step-btn" class="primary-btn">다음으로 👉</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3.5. 종합 분석 화면 (NEW) -->
+        <div id="analysis-screen" class="screen">
+            <header class="chat-header">
+                <h1>종합 분석 결과</h1>
+                <p>박사님의 피드백을 확인하세요!</p>
+            </header>
+            <div class="content-area">
+                <div class="result-card">
+                    <div id="analysis-report" class="learning-box">
+                        <!-- 분석 내용 들어감 -->
+                    </div>
+                    <div id="remedial-section">
+                        <p style="margin-bottom:15px; font-weight:bold; color:var(--primary-color);">틀린 문제들을 완벽하게 복습하고
+                            넘어갈까요?</p>
+                        <button id="start-remedial-btn" class="primary-btn">복습 도전하기 📝</button>
+                    </div>
                 </div>
             </div>
         </div>
